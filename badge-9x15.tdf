@@ -1,0 +1,11 @@
+%%
+%% ticket for "Leitz 1680"
+%% pre-cutted label for wide files
+%%
+\unitlength=1mm
+%% tested for an HP5SiMX, adjust it for your printer
+\hoffset=-16.2mm
+\voffset=-6.6mm
+\ticketNumbers{1}{1}
+\ticketSize{97}{155}     % in unitlength
+\ticketDistance{0}{9.8}    % in unitlength

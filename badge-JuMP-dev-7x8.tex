@@ -1,0 +1,46 @@
+%%%%
+%
+% ticket.sty example file for a pin for conferences
+% This was used for the badges at JuMP-dev 2019
+% This is the 7cm x 8cm (approx) badge.
+%
+%%%%
+% use the corresponding paper size for your ticket definition
+\documentclass[letterpaper,14pt, extrafontsizes, landscape]{memoir}
+
+\usepackage{qrcode}
+
+% load ticket.sty with the appropriate ticket definition
+\usepackage[badge-7x8,crossmark]{ticket}
+
+% load misc stuff
+\usepackage{graphicx}
+
+% make your default ticket. \ticketdefault is somewhat like a background
+\renewcommand{\ticketdefault}{%
+    \put(40,  4){\includegraphics[width=60]{jump-logo-with-text.pdf}}
+  %\put( 5, 13){\line(1,0){60}}
+  \put( 5, 11){\scriptsize JuMP-dev Workshop}
+  \put( 5, 7.5){\scriptsize Santiago, Chile}
+  \put( 5, 4){\scriptsize March 12-14, 2019}
+}
+
+% now what do you like to put in your ticket
+\newcommand{\confpin}[7]{\ticket{%
+        \put(31.5,70){\makebox[0mm]{\bfseries\Huge #1}} % First name
+        \put(31.5,60){\makebox[0mm]{\bfseries\LARGE #2}}% Last name
+        \put(31.5,50){\makebox[0mm]{\bfseries\small #3}} % Affiliation line 1
+        \put(31.5,45){\makebox[0mm]{\bfseries\small #4}} % Affiliation line 2
+        % Arguments 5, 6, and 7 are also First name, last name and affiliation but without accents (for the vCard)
+        % We use the qrcode package for generating a QR code with contact information
+        \put(31.5,25){\makebox[0mm]{\qrcode{BEGIN:VCARD\?VERSION:4.0\?N:#6;#5\?ORG:#7\?END:VCARD}}}
+}}
+
+
+%% the pins for the partipiciants ... ;-)
+%% you can generate this part from a database!
+\begin{document}
+\sffamily
+
+\confpin{Rodolfo}{Carvajal}{Universidad Adolfo Ibáñez}{}{Rodolfo}{Carvajal}{Universidad\ Adolfo\ Ibanez}
+\end{document}

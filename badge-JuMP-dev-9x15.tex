@@ -1,0 +1,41 @@
+%%%%
+%
+% ticket.sty example file for a pin for conferences
+% This was used for the badges at JuMP-dev 2019
+% This is the 9cm x 15cm (approx) badge.
+%%
+%%%%
+% use the corresponding paper size for your ticket definition
+\documentclass[letterpaper,17pt, extrafontsizes, landscape]{memoir}
+
+\usepackage{qrcode}
+
+% load ticket.sty with the appropriate ticket definition
+\usepackage[badge-9x15,crossmark]{ticket}
+
+% load misc stuff
+\usepackage{graphicx}
+
+% make your default ticket. \ticketdefault is somewhat like a background
+\renewcommand{\ticketdefault}{%
+    \put(15,  10){\includegraphics[width=65mm]{jump-logo-with-text.pdf}}
+  %\put( 5, 13){\line(1,0){60}}
+  \put( 10, 145){\small JuMP-dev Workshop}
+  \put( 10, 140){\small Santiago, Chile}
+  \put( 10, 135){\small March 12-13, 2019}
+}
+
+% now what do you like to put in your ticket
+\newcommand{\confpin}[3]{\ticket{%
+        \put(47.5,110){\makebox[0mm]{\bfseries\LARGE #1}}
+        \put(47.5,95){\makebox[0mm]{\bfseries\LARGE #2}}
+        \put(47.5,80){\makebox[0mm]{\bfseries\Large #3}}
+        \put(47.5,50){\makebox[0mm]{\qrcode{BEGIN:VCARD\?VERSION:4.0\?N:#2;#1\?ORG:#3\?END:VCARD}}}
+}}
+
+%% the pins for the partipiciants ... ;-)
+%% you can generate this part from a database!
+\begin{document}
+\sffamily
+\confpin{Rodolfo}{Carvajal}{Universidad Adolfo Ibanez}
+\end{document}
