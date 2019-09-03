@@ -3,7 +3,7 @@ TeX file used to generate badges for JuMP-dev 2019. The `badge-JuMP-dev-7x8.tex`
 
 ## Usage
 * Modify the `ticketdefault` command for changing the text and logo that is common to all badges.
-* Modify the `cofpin` command to organize the information particular to each attendee.
+* Modify the `confpin` command to organize the information particular to each attendee.
 * You can generate multiple badges by calling, in the document body, the command `confpin` with the information of each attendee.
 
 ## LaTeX Requirements
